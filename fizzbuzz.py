@@ -14,16 +14,11 @@ def fizzbuzz(n):
   
   output=output.strip()
   if output[-1]==",": output=output[:-1]
-  print output
-  return
+  return output
 
 
 
-def main (argv):
-  fizzbuzz(101)
+print fizzbuzz(101)
   
   
-  
-if __name__ == "__main__":
-  main(sys.argv[1:])
   
