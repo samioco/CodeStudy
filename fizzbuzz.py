@@ -20,7 +20,7 @@ def fizzbuzz(n):
 
 
 def main (argv):
-  fizzbuzz(31)
+  fizzbuzz(101)
   
   
   
