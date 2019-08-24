@@ -108,7 +108,7 @@ def calculate_payment():
 	return monthly_payment
 
 #calculate_term formula not working
-#possible error in math logic
+#possible error in math logic using logarithm or math.log
 def calculate_term():
 	p = float(principal)
 	r = float(interest_rate/100/12)
