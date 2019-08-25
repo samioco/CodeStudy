@@ -112,8 +112,10 @@ def calculate_payment():
 def calculate_term():
 	p = float(principal)
 	r = float((interest_rate/100)/12)
-	c = float(monthly_payment)
-	N = (-1) * (math.log((1-(r*p/c)),(1+r)))
+	m = float(monthly_payment)
+	
+	#N = (-1) * (math.log((1-(r*p/c)),(1+r)))
+	N = (-1) * (math.log10(1 - (r*p/m))) / (math.log10(1+r))
 
 	print("Number of months to pay off mortgage: %.0f" % N)
 	return N
@@ -132,20 +134,20 @@ def print_summary():
 	print("{0:<40.40s} {1:>1.1s} {2:>20,.0f} {3:10s}".format("Term (years):", "", term, "years"))
 	print("{0:<40.40s} {1:>1.1s} {2:>20,.0f} {3:10s}".format("Term (months):", "", term*12, "months"))
 	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Monthly Payment:", "$", monthly_payment))
-	
 	print(" ")
 	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Total Principal Payments:","$", principal))
 	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Total Interest Payments:", "$", (term*12*monthly_payment)-principal))
 	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Total Payments:", "$", term*12*monthly_payment))
 
 
+
+#__MAIN__
 principal=0
 interest_rate=0
 term=0
 monthly_payment=0
 total_interest_payments=0
 total_payments=0
-
 #print_summary()
 
 choice = main_menu()
@@ -153,7 +155,6 @@ get_input(choice)
 
 if choice == 1:
 	monthly_payment=calculate_payment()
-
 elif choice == 2:
 	term=calculate_term()
 
