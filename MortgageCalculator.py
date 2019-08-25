@@ -111,7 +111,7 @@ def calculate_payment():
 #possible error in math logic using logarithm or math.log
 def calculate_term():
 	p = float(principal)
-	r = float(interest_rate/100/12)
+	r = float((interest_rate/100)/12)
 	c = float(monthly_payment)
 	N = (-1) * (math.log((1-(r*p/c)),(1+r)))
 
@@ -125,16 +125,18 @@ def print_summary():
 	#print("%10s %30.0f %10s" % ("Term (years):", term, "years"))
 	print(" ")
 	print("Mortgage Summary:")
-	print("{0:<30s} {1:>3s} {2:>20,.2f}".format("Principal:","$", principal))
-	print("{0:<30s} {1:>3s} {2:>20,.2f}".format("Interest Rate (APR):", " ", interest_rate))
-	print("{0:<30s} {1:>3s} {2:>20,.0f} {3:10s}".format("Term (years):", " ", term, "years"))
-	print("{0:<30s} {1:>3s} {2:>20,.0f} {3:10s}".format("Term (months):", " ", term*12, "months"))
-	print("{0:<30s} {1:>3s} {2:>20,.2f}".format("Monthly Payment:", "$", monthly_payment))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Principal:","$", principal))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f} {3:>1.1s}".format("Interest Rate (APR %):", "", interest_rate, "%"))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.5f}".format("Interest Rate (Annual decimal):", "", interest_rate/100))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.5f}".format("Interest Rate (Monthly decimal):", "", (interest_rate/100)/12))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.0f} {3:10s}".format("Term (years):", "", term, "years"))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.0f} {3:10s}".format("Term (months):", "", term*12, "months"))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Monthly Payment:", "$", monthly_payment))
 	
 	print(" ")
-	print("{0:<30s} {1:>3s} {2:>20,.2f}".format("Total Principal Payments:","$", principal))
-	print("{0:<30s} {1:>3s} {2:>20,.2f}".format("Total Interest Payments:", "$", (term*12*monthly_payment)-principal))
-	print("{0:<30s} {1:>3s} {2:>20,.2f}".format("Total Payments:", "$", term*12*monthly_payment))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Total Principal Payments:","$", principal))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Total Interest Payments:", "$", (term*12*monthly_payment)-principal))
+	print("{0:<40.40s} {1:>1.1s} {2:>20,.2f}".format("Total Payments:", "$", term*12*monthly_payment))
 
 
 principal=0
@@ -144,9 +146,7 @@ monthly_payment=0
 total_interest_payments=0
 total_payments=0
 
-print_summary()
-
-
+#print_summary()
 
 choice = main_menu()
 get_input(choice)
