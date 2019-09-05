@@ -1,5 +1,8 @@
 #CollatzConjecture
 def get_input():
+	print("Collatz's Conjecture: Calculates the number of steps required to reach 1 by:")
+	print("If n is even, divide it by 2. Step again.")
+	print("If n is odd, multiple it by 3, and add 1. Step again.")
 	while True:
 		try:
 			n = int(input("Enter starting number (integer > 1)> "))
