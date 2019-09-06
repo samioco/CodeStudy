@@ -15,9 +15,36 @@ def print_main_menu():
 	print("Time (Worst Case scenario fully reversed list): O(n*n)")
 	print("Time (Best Case sceneario already sorted list): O(n)")
 	print("")
+	print("(1) Verbose Mode")
+	print("(2) Brief Mode")
+	print("(Q) Quit")
 
 
-def bubbleSort(mylist):
+def main_menu():	
+	while True:
+		mylist = [8,7,1,9,2,5,6,0,3,4]
+		try:
+			print_main_menu()
+			choice = str(input("Enter choice> "))
+		except ValueError:
+			print("Invalid input: ValueError.")
+			continue
+		if (choice != '1') and (choice!= '2') and (choice.upper()!='Q'):
+			print("Invalid input: Not a valid menu item.")
+			continue
+		elif choice=='1':
+			print(f"Option {choice} chosen. Verbose mode.")
+			sorted_list = bubbleSort(mylist,1)
+		elif choice=='2':
+			print(f"Option {choice} chosen. Brief mode.")
+			sorted_list = bubbleSort(mylist,0)
+		elif choice.upper()=='Q':
+			print("Goodbye!")
+			break
+
+
+def bubbleSort(mylist,mode):
+	print("Test List:",mylist)
 	for i in range(len(mylist)):
 		swap_occurred = False
 		#Last i elements are already in order
@@ -26,17 +53,19 @@ def bubbleSort(mylist):
 		for j in range(0,len(mylist) - i - 1):
 			#Swap if current (j) is greater than next (j+1)
 			if mylist[j]>mylist[j+1]:
+				if mode==1: print(f"i:{i} j:{j}, Swapping mylist[{j}]:{mylist[j]} and mylist[{j+1}]:{mylist[j+1]}")
 				mylist[j],mylist[j+1] = mylist[j+1],mylist[j]
 				swap_occurred = True
+			#if mode==1: print(f"Semi-sorted List: i:{i} j:{j} mylist[{j}]:{mylist[j]} mylist[{j+1}]:{mylist[j+1]}, mylist:{mylist}")
+			if mode==1: print(f"i:{i} j:{j}, Semi-sorted List: {mylist}")
 
 		#if a swap doesn't occur during entire j loop, then list is sorted!
 		if swap_occurred == False:
 			break
-
+	print("Final Sorted List:",mylist)
+	return mylist
 #function test
-mylist = [8,7,1,9,2,5,6,0,3,4]
-print_main_menu()
-print("Test List:",mylist)
-bubbleSort(mylist)
-print("Sorted List:",mylist)
+
+#MAIN
+main_menu()
 
