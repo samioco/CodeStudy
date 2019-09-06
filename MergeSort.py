@@ -1,11 +1,6 @@
 #MergeSort
 
 def print_main_menu():
-	'''
-	print("(1) MergeSort: RuneStone Academy (single method)")
-	print("(2) MergeSort: Amir Ziai (triple method)")
-	print("(3) MergeSort: My Single Method approach")
-	'''
 	print("")
 	print("Merge Sort Algorithm:")
 	print("Divide and conquer. Divide input arrow into two halves. Recursively call itself on each half")
@@ -14,25 +9,40 @@ def print_main_menu():
 	print("Time (Worst Case scenario fully reversed list): O(n*n)")
 	print("Time (Best Case sceneario already sorted list): O(n)")
 	print("")
+	print("(1) Verbose Mode")
+	print("(2) Brief Mode")
+	print("(Q) Quit")
 
 def main_menu():
+	mylist = [54,26,93,17,77,31,44,55,20]
+	list1=[5,3,1,2]
+	
 	while True:
 		try:
 			print_main_menu()
-			choice = int(input("Enter choice (1 to 2)> "))
+			choice = str(input("Enter choice> "))
 		except ValueError:
 			print("Invalid input: ValueError.")
 			continue
-		if (choice != 1) and (choice!= 2):
+		if (choice != '1') and (choice!= '2') and (choice.upper()!='Q'):
 			print("Invalid input: Not a valid menu item.")
 			continue
-		else:
-			print(f"Option {choice} chosen.")
+		elif choice=='1':
+			print(f"Option {choice} chosen. Verbose mode.")
+			sorted_list = sortList(mylist,1)
+			print("Final Sorted List: ",sorted_list)
+		elif choice=='2':
+			print(f"Option {choice} chosen. Brief mode.")
+			sorted_list = sortList(mylist,0)
+			print("Final Sorted List: ",sorted_list)
+		elif choice.upper()=='Q':
+			print("Goodbye!")
 			break
+
 	return choice
 
 
-def mergeLists(lefthalf,righthalf):
+def mergeLists(lefthalf,righthalf,mode):
 	merged_list = []
 
 	#Merging/Sorting of lefthalf and righthalf
@@ -40,7 +50,7 @@ def mergeLists(lefthalf,righthalf):
 	j=0 #righthalf index
 	k=0 #merged_list index
 
-	print("MERGING Left:",lefthalf,", Right:", righthalf)
+	if mode==1: print("MERGING Left:",lefthalf,", Right:", righthalf)
 	while i<len(lefthalf) and j<len(righthalf):
 		if lefthalf[i] <= righthalf[j]:
 			#merged_list[k] = lefthalf[i]
@@ -76,18 +86,18 @@ def mergeLists(lefthalf,righthalf):
 		merged_list += righthalf[j:]
 
 
-	print("Returning List ",merged_list)
+	if mode==1: print("Returning List ",merged_list)
 	return merged_list
 
 
 
-def sortList(input_list):
-	
+def sortList(input_list,mode):
+	print("Splitting:",input_list)
 	#Split the list
 	#splitList(alist)
 	
 	if len(input_list)<=1:
-		print("Returning Single Item List:",input_list)
+		if mode==1: print("Returning Single Item List:",input_list)
 		return input_list
 	else:
 		mid = len(input_list)//2
@@ -95,28 +105,22 @@ def sortList(input_list):
 		righthalf=input_list[mid:]
 
 		#Recursively call self (mergeSort) on splits
-		print("Splitting Left Half:",lefthalf)
-		lefthalf_sorted=sortList(lefthalf)
-		print("RECEIVED: Left Half:",lefthalf_sorted)
+		if mode==1: print("Splitting Left Half:",lefthalf)
+		lefthalf_sorted=sortList(lefthalf,mode)
+		if mode==1: print("RECEIVED: Left Half:",lefthalf_sorted)
 
-		print("Splitting Right Half:",righthalf)
-		righthalf_sorted=sortList(righthalf)
-		print("RECEIVED: Right Half:",righthalf_sorted)
+		if mode==1: print("Splitting Right Half:",righthalf)
+		righthalf_sorted=sortList(righthalf,mode)
+		if mode==1: print("RECEIVED: Right Half:",righthalf_sorted)
 		
-		sorted_list = mergeLists(lefthalf_sorted,righthalf_sorted)
+		sorted_list = mergeLists(lefthalf_sorted,righthalf_sorted,mode)
 		#print("Received Sorted List:",sorted_list)
 		return sorted_list
 
 
 
 
-
 #MAIN
-print_main_menu()
-mylist = [54,26,93,17,77,31,44,55,20]
-list1=[5,3,1,2]
-print("Splitting:",mylist)
-sorted_list = sortList(mylist)
+main_menu()
 
-print("Final Sorted List: ",sorted_list)
 
