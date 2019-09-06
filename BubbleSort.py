@@ -8,6 +8,15 @@ Worst case i loop scenario: largest item in first index, moved the back via firs
 Worst case j loop scenario: smallest item in last index, requiest j loops to swap to front
 '''
 
+def print_main_menu():
+	print("")
+	print("Bubble Sort Algorithm:")
+	print("From head of list, use nested loops to swap adjacent elements if they are out of order.")
+	print("Time (Worst Case scenario fully reversed list): O(n*n)")
+	print("Time (Best Case sceneario already sorted list): O(n)")
+	print("")
+
+
 def bubbleSort(mylist):
 	for i in range(len(mylist)):
 		swap_occurred = False
@@ -26,8 +35,7 @@ def bubbleSort(mylist):
 
 #function test
 mylist = [8,7,1,9,2,5,6,0,3,4]
-print("Bubble Sort Algorithm:")
-print("From head of list, use nested loops to swap adjacent elements if they are out of order.")
+print_main_menu()
 print("Test List:",mylist)
 bubbleSort(mylist)
 print("Sorted List:",mylist)
