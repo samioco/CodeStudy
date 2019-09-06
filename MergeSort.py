@@ -39,8 +39,6 @@ def main_menu():
 			print("Goodbye!")
 			break
 
-	return choice
-
 
 def mergeLists(lefthalf,righthalf,mode):
 	merged_list = []
