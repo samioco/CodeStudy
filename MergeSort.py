@@ -1,9 +1,19 @@
 #MergeSort
 
 def print_main_menu():
+	'''
 	print("(1) MergeSort: RuneStone Academy (single method)")
 	print("(2) MergeSort: Amir Ziai (triple method)")
 	print("(3) MergeSort: My Single Method approach")
+	'''
+	print("")
+	print("Merge Sort Algorithm:")
+	print("Divide and conquer. Divide input arrow into two halves. Recursively call itself on each half")
+	print("until each half is split to a single item. Then merge each sorted half until the recursively")
+	print("called functions are complete, resulting in a sorted list.")
+	print("Time (Worst Case scenario fully reversed list): O(n*n)")
+	print("Time (Best Case sceneario already sorted list): O(n)")
+	print("")
 
 def main_menu():
 	while True:
@@ -102,6 +112,7 @@ def sortList(input_list):
 
 
 #MAIN
+print_main_menu()
 mylist = [54,26,93,17,77,31,44,55,20]
 list1=[5,3,1,2]
 print("Splitting:",mylist)
