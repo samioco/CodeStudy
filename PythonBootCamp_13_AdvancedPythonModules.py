@@ -74,9 +74,7 @@ from collections import defaultdict
 
 #for item in d: print(item)
 d = defaultdict(lambda:0)
-print("Printing d['one'] (hasn't been declared):")
-d['one']
-
+print("Printing d['one'] (hasn't been declared):",d['one'],"\n")
 
 
 print('Normal dictionary:')
@@ -126,3 +124,99 @@ d D
 e E
 '''
 
+print("""
+Equality with an Ordered Dictionary
+A regular dict looks at its contents when testing for equality. An OrderedDict also considers the order the items were added.
+A normal Dictionary:
+d1 = {}
+d1['a'] = 'A'
+d1['b'] = 'B'
+d2 = {}
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+""")
+
+d1 = {}
+d1['a'] = 'A'
+d1['b'] = 'B'
+
+d2 = {}
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print("Dictionaries are equal? (Normal)")
+print(d1==d2)
+
+'''
+Dictionaries are equal?
+True
+An Ordered Dictionary:
+'''
+
+print('\nDictionaries are equal? (Ordered)')
+
+d1 = OrderedDict()
+d1['a'] = 'A'
+d1['b'] = 'B'
+d2 = OrderedDict()
+d2['b'] = 'B'
+d2['a'] = 'A'
+
+print(d1==d2)
+''' Will print:
+Dictionaries are equal?
+False
+'''
+print("\n\n")
+
+#namedtuple
+print("namedtuple:\n")
+t = (12,13,14)
+t[0]
+'''
+12
+For simple use cases, this is usually enough. 
+On the other hand, remembering which index should 
+be used for each value can lead to errors, 
+especially if the tuple has a lot of fields and 
+is constructed far from where it is used. 
+A namedtuple assigns names, as well as the 
+numerical index, to each member.
+
+Each kind of namedtuple is represented by its own class, 
+created by using the namedtuple() factory function. The 
+arguments are the name of the new class and a string 
+containing the names of the elements.
+
+You can basically think of namedtuples as a very quick 
+way of creating a new object/class type with some attribute 
+fields. For example:
+'''
+from collections import namedtuple
+
+Dog = namedtuple('Dog','age breed name')
+sam = Dog(age=2,breed='Lab',name='Sammy')
+frank = Dog(age=2,breed='Shepard',name="Frankie")
+
+'''
+We construct the namedtuple by first passing the object 
+type name (Dog) and then passing a string with the 
+variety of fields as a string with spaces between the 
+field names. We can then call on the various attributes:
+'''
+print("Calling: 'sam'")
+sam
+#Dog(age=2, breed='Lab', name='Sammy')
+
+print("Calling: 'sam.age'")
+sam.age
+#2
+
+print("Calling: 'sam.breed'")
+sam.breed
+#'Lab'
+
+print("Calling: 'sam[0]'")
+sam[0]
+2
