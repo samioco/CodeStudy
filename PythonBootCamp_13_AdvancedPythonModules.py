@@ -195,6 +195,13 @@ fields. For example:
 '''
 from collections import namedtuple
 
+print("""
+Assigning:
+Dog = namedtuple('Dog','age breed name')
+sam = Dog(age=2,breed='Lab',name='Sammy')
+frank = Dog(age=2,breed='Shepard',name="Frankie")
+""")
+
 Dog = namedtuple('Dog','age breed name')
 sam = Dog(age=2,breed='Lab',name='Sammy')
 frank = Dog(age=2,breed='Shepard',name="Frankie")
@@ -220,3 +227,24 @@ sam.breed
 print("Calling: 'sam[0]'")
 sam[0]
 2
+
+print("""
+Assigning:
+Cat = namedtuple('Cat','fur claws name')
+c = Cat(fur='Fuzzy',claws=False,name='Kitty')
+""")
+Cat = namedtuple('Cat','fur claws name')
+c = Cat(fur='Fuzzy',claws=False,name='Kitty')
+
+print("Calling: 'c'")
+c
+
+print("Calling: 'c.name'")
+c.name
+
+print("Calling: 'c[2]'")
+c[2]
+
+print("Calling: 'c[1]'")
+c[1]
+
