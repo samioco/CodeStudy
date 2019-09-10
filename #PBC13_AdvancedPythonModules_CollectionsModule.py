@@ -215,15 +215,12 @@ field names. We can then call on the various attributes:
 print("Calling: 'sam'")
 sam
 #Dog(age=2, breed='Lab', name='Sammy')
-
 print("Calling: 'sam.age'")
 sam.age
 #2
-
 print("Calling: 'sam.breed'")
 sam.breed
 #'Lab'
-
 print("Calling: 'sam[0]'")
 sam[0]
 2
@@ -238,13 +235,10 @@ c = Cat(fur='Fuzzy',claws=False,name='Kitty')
 
 print("Calling: 'c'")
 c
-
 print("Calling: 'c.name'")
 c.name
-
 print("Calling: 'c[2]'")
 c[2]
-
 print("Calling: 'c[1]'")
 c[1]
 
