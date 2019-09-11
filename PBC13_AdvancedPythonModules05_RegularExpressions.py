@@ -1,6 +1,6 @@
 #PBC13_AdvancedPythonModules05_RegularExpressions.py
 
-print("""
+print("""------------------------------------------------------------
 Regular Expressions
 Regular expressions are text-matching patterns described with 
 a formal syntax. You'll often hear regular expressions referred 
@@ -16,6 +16,9 @@ the re module with Python for this lecture.
 """)
 
 print("""
+------------------------------------------------------------
+
+re.search(pattern,text): 
 Searching for Patterns in Text
 One of the most common uses for the re module is for finding 
 patterns in text. Let's do a quick example of using the search 
@@ -59,9 +62,21 @@ for pattern in patterns:
 
 
 print("""
-Now we've seen that re.search() will take the pattern, scan the text, 
-and then return a Match object. If no pattern is found, None is returned. 
+match = re.search(patterns[0],text)
+print(type(match))
 """)
+match = re.search(patterns[0],text)
+print(type(match))
+
+
+
+
+print("""
+------------------------------------------------------------
+
+match.start(), match.end()
+Now we've seen that re.search() will take the pattern, scan the text, 
+and then return a Match object. If no pattern is found, None is returned.""")
 
 print("""
 # List of patterns to search for
@@ -93,20 +108,75 @@ print(match.start())
 
 print("print(match.end())")
 print(match.end())
-
+print("")
 
 print("""
-Split with regular expressions
+------------------------------------------------------------
+
+re.split(pattern,text):
+Split with regular expressions:
 Let's see how we can split with the re syntax. This should look similar to 
-how you used the split() method with strings.
+how you used the split() method with strings. The term to split is removed.
 """)
 
 
 # Term to split on
-split_term = '@'
-
+print("""Splitting on a term using regular expressions:
 phrase = 'What is the domain name of someone with the email: hello@gmail.com'
-
+split_term = '@'
+print(re.split(split_term,phrase)):
+""")
+phrase = 'How do you split an email address from it\'s domain: hello@gmail.com'
+split_term = '@'
 # Split the phrase
-re.split(split_term,phrase)
+print(re.split(split_term,phrase))
+
+
+print("""
+------------------------------------------------------------
+
+re.findall()
+Finding all instances of a pattern
+You can use re.findall() to find all the instances of a pattern in a string. 
+For example:
+#Returns a list of all matches (the length of which = # of matches)
+re.findall('match','Here is one match, here is another match')""")
+print(re.findall('match','Here is one match, here is another match'))
+
+print("""
+------------------------------------------------------------
+
+re Pattern Syntax
+This will be the bulk of this lecture on using re with Python. 
+Regular expressions support a huge variety of patterns beyond 
+just simply finding where a single string occurred.
+
+We can use metacharacters along with re to find specific types of patterns.
+
+Since we will be testing multiple re syntax forms, let's create a 
+function that will print out results given a list of various 
+regular expressions and a phrase to parse:
+
+def multi_re_find(patterns,phrase):
+    '''
+    Takes in a list of regex patterns
+    Prints a list of all matches
+    '''
+    for pattern in patterns:
+        print('Searching the phrase using the re check: %r' %(pattern))
+        print(re.findall(pattern,phrase))
+        print('\n')
+""")
+
+
+def multi_re_find(patterns,phrase):
+    '''
+    Takes in a list of regex patterns
+    Prints a list of all matches
+    '''
+    for pattern in patterns:
+        print('Searching the phrase using the re check: %r' %(pattern))
+        print(re.findall(pattern,phrase))
+        print('\n')
+
 
