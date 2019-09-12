@@ -180,3 +180,148 @@ def multi_re_find(patterns,phrase):
         print('\n')
 
 
+print("""
+
+Repetition Syntax
+There are five ways to express repetition in a pattern:
+
+1. A pattern followed by the meta-character * is repeated zero or more times.
+2. Replace the * with + and the pattern must appear at least once.
+3. Using ? means the pattern appears zero or one time.
+4. For a specific number of occurrences, use {m} after the pattern, where m is 
+	replaced with the number of times the pattern should repeat.
+5. Use {m,n} where m is the minimum number of repetitions and n is the maximum. 
+	Leaving out n {m,} means the value appears at least m times, with no maximum.
+
+Now we will see an example of each of these using our multi_re_find function:
+
+test_phrase = 'sdsd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+
+test_patterns = [ 'sd*',     # s followed by zero or more d's
+                'sd+',          # s followed by one or more d's
+                'sd?',          # s followed by zero or one d's
+                'sd{3}',        # s followed by three d's
+                'sd{2,3}',      # s followed by two to three d's
+                ]
+multi_re_find(test_patterns,test_phrase)
+""")
+
+test_phrase = 'sdsd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+
+test_patterns = [ 'sd*',     # s followed by zero or more d's
+                'sd+',          # s followed by one or more d's
+                'sd?',          # s followed by zero or one d's
+                'sd{3}',        # s followed by three d's
+                'sd{2,3}',      # s followed by two to three d's
+                ]
+
+multi_re_find(test_patterns,test_phrase)
+
+print("""
+------------------------------------------------------------
+
+Character Sets []
+Character sets are used when you wish to match any one of a group 
+of characters at a point in the input. Brackets are used to construct 
+character set inputs. For example: the input [ab] searches for occurrences 
+of either a or b. Let's see some examples:
+
+test_phrase = 'sdsd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+test_patterns = ['[sd]',    # either s or d
+                's[sd]+']   # s followed by one or more s or d
+multi_re_find(test_patterns,test_phrase)
+""")
+
+test_phrase = 'sdsd..sssddd...sdddsddd...dsds...dsssss...sdddd'
+test_patterns = ['[sd]',    # either s or d
+                's[sd]+']   # s followed by one or more s or d
+multi_re_find(test_patterns,test_phrase)
+"""Output:
+Searching the phrase using the re check: '[sd]'
+['s', 'd', 's', 'd', 's', 's', 's', 'd', 'd', 'd', 's', 'd', 'd', 'd', 's', 'd', 
+'d', 'd', 'd', 's', 'd', 's', 'd', 's', 's', 's', 's', 's', 's', 'd', 'd', 'd', 'd']
+
+Searching the phrase using the re check: 's[sd]+'
+['sdsd', 'sssddd', 'sdddsddd', 'sds', 'sssss', 'sdddd']
+"""
+
+
+
+print("""
+It makes sense that the first input [sd] returns every instance of s or d. 
+Also, the second input s[sd]+ returns any full strings that begin with an 
+s and continue with s or d characters until another character is reached.
+
+Exclusion
+We can use ^ to exclude terms by incorporating it into the bracket syntax 
+notation. For example: [^...] will match any single character not in the 
+brackets. Let's see some examples:
+
+test_phrase = 'This is a string! But it has punctuation. How can we remove it?'
+
+Use [^!.? ] to check for matches that are not a !,.,?, or space. Add a + to 
+check that the match appears at least once. This basically translates into 
+finding the words.
+
+re.findall('[^!.? ]+',test_phrase)
+""")
+test_phrase = 'This is a string! But it has punctuation. How can we remove it?'
+print(re.findall('[^!.? ]+',test_phrase))
+
+'''Output:
+['This', 'is', 'a', 'string', 'But', 'it', 'has', 'punctuation', 'How', 'can', 
+'we', 'remove', 'it']
+'''
+
+print("""
+------------------------------------------------------------
+
+Character Ranges
+As character sets grow larger, typing every character that should (or should not) 
+match could become very tedious. A more compact format using character ranges lets 
+you define a character set to include all of the contiguous characters between a 
+start and stop point. The format used is [start-end].
+
+Common use cases are to search for a specific range of letters in the alphabet. 
+For instance, [a-f] would return matches with any occurrence of letters between a and f.
+
+Let's walk through some examples:
+test_phrase = 'This is an example sentence. Lets see if we can find some letters.'
+
+test_patterns=['[a-z]+',      # sequences of lower case letters
+               '[A-Z]+',      # sequences of upper case letters
+               '[a-zA-Z]+',   # sequences of lower or upper case letters
+               '[A-Z][a-z]+'] # one upper case letter followed by lower case letters
+                
+multi_re_find(test_patterns,test_phrase)
+""")
+test_phrase = 'This is an example sentence. Lets see if we can find some letters.'
+test_patterns=['[a-z]+',      # sequences of lower case letters
+               '[A-Z]+',      # sequences of upper case letters
+               '[a-zA-Z]+',   # sequences of lower or upper case letters
+               '[A-Z][a-z]+'] # one upper case letter followed by lower case letters
+               
+multi_re_find(test_patterns,test_phrase)
+"""
+Searching the phrase using the re check: '[a-z]+'
+['his', 'is', 'an', 'example', 'sentence', 'ets', 'see', 'if', 'we', 'can', 'find', 
+'some', 'letters']
+
+Searching the phrase using the re check: '[A-Z]+'
+['T', 'L']
+
+Searching the phrase using the re check: '[a-zA-Z]+'
+['This', 'is', 'an', 'example', 'sentence', 'Lets', 'see', 'if', 'we', 'can', 'find', 
+'some', 'letters']
+
+Searching the phrase using the re check: '[A-Z][a-z]+'
+['This', 'Lets']
+"""
+
+
+print("""
+------------------------------------------------------------
+
+
+
+""")
