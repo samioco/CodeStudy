@@ -46,9 +46,13 @@ Out[7]:
 In [8]:
 # Close the object when contents are no longer needed
 f.close()
-Great! Now you've seen how we can use StringIO to turn normal strings into in-memory file objects in our code. This kind of action has various use cases, especially in web scraping cases where you want to read some string you scraped as a file.
+Great! Now you've seen how we can use StringIO to turn normal strings 
+into in-memory file objects in our code. This kind of action has various 
+use cases, especially in web scraping cases where you want to read some 
+string you scraped as a file.
 
-For more info on StringIO check out the documentation: https://docs.python.org/3/library/io.html
+For more info on StringIO check out the documentation: 
+https://docs.python.org/3/library/io.html
 ------------------------------------------------------------
 ------------------------------------------------------------
 """)
