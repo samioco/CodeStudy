@@ -2,7 +2,7 @@
 #[1,2,0] -> 3
 
 def firstMissingPositive_2N(mylist):
-    mylist.sort()
+    #mylist.sort()
     print("Received list: ",mylist)
     #print("Removing negatives, zero, and any number greater than length of list")
     for item in mylist:
@@ -20,7 +20,7 @@ def firstMissingPositive_2N(mylist):
             #print("Mylist: ",mylist)
             i+=1
         else:
-            print(i," not in list!")
+            #print(i," not in list!")
             break
     #print("Returning: ",i)
     return i
@@ -32,14 +32,14 @@ First Missing Positive Algorithm:
 list1 = [-5,1,2,0]
 print("Input: ",list1)
 result = firstMissingPositive_2N(list1)
-print("Output: ",result,"\n")
+print("Output firstMissingPositive_2N: ",result,"\n")
 
 list1 = [3,4,-1,1]
 print("Input: ",list1)
 result = firstMissingPositive_2N(list1)
-print("Output: ",result,"\n")
+print("Output firstMissingPositive_2N: ",result,"\n")
 
 list1 = [7,8,9,11,12]
 print("Input: ",list1)
 result = firstMissingPositive_2N(list1)
-print("Output: ",result,"\n")
+print("Output: firstMissingPositive_2N: ",result,"\n")
