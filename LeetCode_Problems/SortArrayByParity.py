@@ -44,7 +44,18 @@ def merge_lists(evenlist, oddlist):
     return merged_list
 
 
+class Solution(object):
+    def sortArrayByParity_lambdaComparator(self, A):
+        A.sort(key = lambda x: x%2)
+        return A
+
+    def sortArrayByParity_TwoPass(self, A):
+        return ([x for x in A if x%2==0] + [x for x in A if x%2==1])
+
+
 mylist=[3,1,2,4]
+
+"""
 #mylist.sort()
 evenlist = []
 oddlist = []
@@ -66,3 +77,17 @@ for item in oddlist:
 
 
 print(sorted_merged_list)
+"""
+
+mylist=[3,1,2,4]
+print("""
+Sort Array By Parity
+Input: """, mylist,"\n")
+
+sorted_list = Solution()
+
+sorted_list.sortArrayByParity_lambdaComparator(mylist)
+print("Output using sortArrayByParity_lambdaComparator: \nTime: O(N log N)\n",mylist,"\n")
+
+sorted_list.sortArrayByParity_TwoPass(mylist)
+print("Output using ([x for x in A if x%2==0] + [x for x in A if x%2==1]): \nTime: O(N)\n",mylist)
