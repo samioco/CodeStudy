@@ -5,45 +5,6 @@
 #[3,1,2,4] -> [2,4,3,1]
 #evens first
 
-def split_list(mylist):
-    print("Received mylist: ",mylist)
-    evenlist=[]
-    oddlist=[]
-    for item in mylist:
-        print("Scanning item: ",item)
-        if item % 2 == 0:
-            print("Even item detected. Appending to evenlist: ",evenlist)
-            evenlist.append(item)
-        else:
-            print("Odd item detected. Appending to oddlist: ",oddlist)
-            oddlist.append(item)
-    print("Done splitting list.")
-    print("Evenlist: ", evenlist)
-    print("Oddlist: ", oddlist)
-    return evenlist, oddlist
-
-def merge_lists(evenlist, oddlist):
-    merged_list = []
-    even_i=0
-    odd_i=0
-    while even_i < len(evenlist)-1:
-        while odd_i < len(oddlist)-1:
-            print("Comparing ",evenlist[even_i]," and ",oddlist[odd_i])
-            if int(evenlist[even_i]) < int(oddlist[odd_i]):
-                print("Appending ",evenlist[even_i])
-                merged_list.append(evenlist[even_i])
-                even_i += 1
-            else: 
-                print("Appending ",oddlist[odd_i])
-                merged_list.append(oddlist[odd_i])
-                odd_i += 1
-            print("Merged list: ",merged_list)
-            print("even_i: ",even_i,", odd_i: ",odd_i)
-            continue
-                
-    return merged_list
-
-
 class Solution(object):
     def sortArrayByParity_lambdaComparator(self, A):
         A.sort(key = lambda x: x%2)
@@ -52,32 +13,19 @@ class Solution(object):
     def sortArrayByParity_TwoPass(self, A):
         return ([x for x in A if x%2==0] + [x for x in A if x%2==1])
 
+    def sortArrayByParity_InPlace(self, A):
+        """
+        quicksort: using i and j
+        """
+        i, j = 0, len(A) - 1
+        while i < j:
+            if A[i] % 2 > A[j] % 2:
+                A[i], A[j] = A[j], A[i]
 
-mylist=[3,1,2,4]
+            if A[i] % 2 == 0: i += 1
+            if A[j] % 2 == 1: j -= 1
 
-"""
-#mylist.sort()
-evenlist = []
-oddlist = []
-evenlist, oddlist = split_list(mylist)
-print("")
-print("Global lists:")
-print("Even list: ", evenlist)
-print("Odd list: ", oddlist)
-
-print("")
-sorted_merged_list=[]
-#sorted_merged_list = merge_lists(evenlist,oddlist)
-#print("Merged list: ", sorted_merged_list)
-
-for item in evenlist:
-    sorted_merged_list.append(item)
-for item in oddlist:
-    sorted_merged_list.append(item)
-
-
-print(sorted_merged_list)
-"""
+        return A
 
 mylist=[3,1,2,4]
 print("""
@@ -90,4 +38,7 @@ sorted_list.sortArrayByParity_lambdaComparator(mylist)
 print("Output using sortArrayByParity_lambdaComparator: \nTime: O(N log N)\n",mylist,"\n")
 
 sorted_list.sortArrayByParity_TwoPass(mylist)
-print("Output using ([x for x in A if x%2==0] + [x for x in A if x%2==1]): \nTime: O(N)\n",mylist)
+print("Output using ([x for x in A if x%2==0] + [x for x in A if x%2==1]): \nTime: O(N)\n",mylist,"\n")
+
+sorted_list.sortArrayByParity_InPlace(mylist)
+print("Output usingsortArrayByParity_InPlace: \nTime: O(N) normally. Quicksort: O (N log N)\n",mylist,"\n")
