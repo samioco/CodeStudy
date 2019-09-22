@@ -50,4 +50,4 @@ print("H2: ",h2, "Height: ",sum(h2))
 print("H3: ",h3, "Height: ",sum(h3))
 
 result = equalStacks(h1,h2,h3)
-print(result)
+print("Maximum shared height of all boxes: ",result)
