@@ -58,3 +58,4 @@ print("Input combo: ",combo)
 
 result = nextLockCombo(combo)
 print("Result: ",result)
+
