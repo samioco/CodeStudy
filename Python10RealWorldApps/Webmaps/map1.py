@@ -59,7 +59,6 @@ name = list(data["NAME"])
 lat = list(data["LAT"])
 lon = list(data["LON"])
 elev = list(data["ELEV"])
-coords = [[data["LAT"][i],data["LON"][i]] for i in range(len(data)) if data["LAT"][i]]
 
 html = """
 Volcano name:<br>
@@ -82,11 +81,16 @@ for lt, ln, el, name in zip(lat, lon, elev, name):
 #add GeoJson object
 #GeoJson(data, style_function=None, highlight_function=None, name=None, overlay=True, 
 #   control=True, show=True, smooth_factor=None, tooltip=None, embed=True)
-fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig'), 
-style_function=lambda x: {'fillColor':'yellow'}))
+fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(), 
+                            style_function=lambda x: {'fillColor':'yellow' 
+                                                      if x['properties']['POP2005'] < 10000000 
+                                                      else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 
+                                                      else 'red'}))
 
 map.add_child(fg)
 map.save("Map4h.html")
+
+
 
 
 
