@@ -5,8 +5,7 @@
     <title></title>
   </head>
   <body>
-    <h1>Hotel Feedback Form!</h1>
-
+    <h2>Hotel Feedback Form!</h2>
       <!-- Things we will cover
       1. Linking Radio Buttons
       2. Drop-down Menus
@@ -14,12 +13,18 @@
 
 
         <form method="get">
-          <h3>Are you from inside the USA? Or outside?</h3>
-          <label for="inside">Location:</label>
-          <input type="radio" id="inside" name="loc_choice" value="">
-
+          <h4>Are you from inside/outside the USA?</h4>
+          <!-- <label for="inside">Inside:</label>
+          <input type="radio" id="inside" name="loc_choice1" value="inside">
           <label for="outside">Outside:</label>
-          <input type="radio" id="outside" name= "loc_choice" value="out">
+          <input type="radio" id="outside" name= "loc_choice2" value="outside"> -->
+
+          <p></p>
+          <label for="inside">Inside:</label>
+          <input type="radio" id="inside" name="loc_choice" value="ininside">
+          <label for="outside">Outside:</label>
+          <input type="radio" id="outside" name= "loc_choice" value="outside">
+
 
 
           <p>How was your service? (3 being the best)</p>
@@ -28,16 +33,11 @@
             <option value="Okay">2</option>
             <option value="Bad">1</option>
           </select>
+          <!-- <input type="submit" name="" value="Submit"> -->
 
-
-          <p>Any other Feedback?</p>
-
+          <p>More Feedback:</p>
           <textarea name="name" rows="8" cols="80"></textarea>
-
-
           <input type="submit" name="" value="Submit Feedback">
-
-
         </form>
 
 
