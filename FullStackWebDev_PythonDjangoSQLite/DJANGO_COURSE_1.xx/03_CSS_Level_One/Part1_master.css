@@ -14,17 +14,20 @@ Selected Tag {
 /*Colors can be names, or codes*/
 
 h1{
-  color: blue;
+  /* color: blue; */
+  color: red;
+
 }
 
 li {
-  color: rgb(0,200,0);
+  color: rgb(255, 98, 0);
+  /* color: green; */
 }
 
 p{
-  color: #000000;
+  color: #0055ff;
 }
 
 h4{
-  color: rgba(13,90,140,0.5)
+  color: rgba(255, 98, 0,0.5)
 }
