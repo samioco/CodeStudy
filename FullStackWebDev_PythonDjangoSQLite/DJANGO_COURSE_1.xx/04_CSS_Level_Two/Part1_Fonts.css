@@ -24,7 +24,7 @@ p{
   font-size: 10px;
 } */
 /*browser default 1em = 16px
-unless parent attribute is overwritten
+unless parent body attribute is overwritten
 1em = 16px
 2em = 32px */
 body{
