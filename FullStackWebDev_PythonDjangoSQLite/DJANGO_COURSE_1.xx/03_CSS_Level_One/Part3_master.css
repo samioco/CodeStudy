@@ -32,9 +32,9 @@ div{
 } */
 
 /*Adjacent sibling: Elements that are next to each other*/
-/* h3 + ul{
+h3 + ul{
   border: 3px dotted purple;
-} */
+}
 
 /*Descendants*/
 /* li a{
