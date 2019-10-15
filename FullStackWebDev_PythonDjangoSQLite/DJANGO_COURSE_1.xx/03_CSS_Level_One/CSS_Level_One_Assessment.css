@@ -20,7 +20,10 @@ h1{
 
 /*Task # 3
 Make all h2 elements the color purple*/
+h2{
+  color: purple;
 
+}
 
 
 /*Task # 4
