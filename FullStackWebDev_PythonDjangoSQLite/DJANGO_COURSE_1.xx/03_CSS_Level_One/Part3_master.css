@@ -42,7 +42,7 @@ li a{
 }
 
 /*Attributes*/
-/* li a[href="www.npr.org"]{
+li a[href="www.npr.org"]{
   color: red;
   border: 5px solid orange;
-} */
+}
