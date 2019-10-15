@@ -13,22 +13,27 @@ h1{
   font-family: "Arial";
 }
 
- p{
+p{
 
   font-family: monospace;
 }
 
+
+
+/* p{
+  font-size: 10px;
+} */
+/*browser default 1em = 16px
+unless parent attribute is overwritten
+1em = 16px
+2em = 32px */
 body{
   font-size: 20px;
-}
-/*
-p{
-  font-size: 10px;
 }
 
 #two{
   font-size: 2.0em;
-} */
+}
 
 
 /*Font Properties*/
