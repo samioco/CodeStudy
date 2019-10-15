@@ -37,9 +37,9 @@ h3 + ul{
 }
 
 /*Descendants*/
-/* li a{
-  color: black;
-} */
+li a{
+  color: red;
+}
 
 /*Attributes*/
 /* li a[href="www.npr.org"]{
