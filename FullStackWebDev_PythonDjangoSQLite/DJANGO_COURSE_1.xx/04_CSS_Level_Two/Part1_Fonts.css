@@ -36,12 +36,13 @@ body{
 }
 
 
+
 /*Font Properties*/
-/*
+
 p{
   font-style: italic;
-  font-weight: bold;
-} */
+  font-weight: bolder;
+}
 
 /*Text Properties*/
 /* h1{
