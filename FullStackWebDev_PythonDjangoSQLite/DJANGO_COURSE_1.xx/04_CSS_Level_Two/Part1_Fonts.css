@@ -14,13 +14,14 @@ h1{
   font-family: "Arial";
 }
 
-p{
-
-  /* font-family: monospace; */
+/* p{
   font-family: 'Zhi Mang Xing', cursive;
+} */
+p {
+   font-family: 'AlexBrushRegular';
+   font-weight: normal;
+   font-style: normal;
 }
-
-
 
 /* p{
   font-size: 10px;
