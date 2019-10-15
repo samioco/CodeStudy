@@ -5,12 +5,10 @@ body{
 }
 
 div{
-  background: blue;
-  border: orange;
-  border-width: thick; /* 10 px */
+  background: red;
+  border-color: blue;
+  border-width: medium;
   border-style: dotted;
-
-  }
 
 p{
   color: yellow;
