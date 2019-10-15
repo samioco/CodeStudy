@@ -5,39 +5,43 @@
 /*  https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors */
 /*Class selectors start with a dot . */
 
-.firstDiv{
+div{
+  color: red;
+}
+
+/* .Div1class{
   color: blue;
 }
 
-.secondDiv{
+.Div2class{
   background-color: gray;
-}
+} */
 
 /* Use an id to single out html elements*/
 
 /* id selectors use a hashtag # */
-#singledout{
+/* #singledout{
   color: red;
   text-decoration: underline;
-}
+} */
 
 /*Use an asterisk to select all elements*/
-*{
+/* *{
   color: green;
-}
+} */
 
 /*Adjacent sibling: Elements that are next to each other*/
-h3 + ul{
+/* h3 + ul{
   border: 3px dotted purple;
-}
+} */
 
 /*Descendants*/
-li a{
+/* li a{
   color: black;
-}
+} */
 
 /*Attributes*/
-li a[href="www.npr.org"]{
+/* li a[href="www.npr.org"]{
   color: red;
   border: 5px solid orange;
-}
+} */
