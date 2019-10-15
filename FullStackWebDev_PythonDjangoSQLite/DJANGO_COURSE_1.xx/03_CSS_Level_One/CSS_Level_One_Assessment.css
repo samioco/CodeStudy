@@ -62,7 +62,9 @@ textarea{
 
 /*Task # 7
 There is a link to Google on the page. Make this link red.*/
-
+a{
+  color: red;
+}
 
 
 /*Task # 8
