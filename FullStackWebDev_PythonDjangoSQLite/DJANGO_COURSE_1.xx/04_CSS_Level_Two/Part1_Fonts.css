@@ -1,7 +1,8 @@
 /*Fonts on Windows:
 https://en.wikipedia.org/wiki/List_of_typefaces_included_with_Microsoft_Windows
 Fonts on Macs:
-https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOSfon
+https://en.wikipedia.org/wiki/List_of_typefaces_included_with_macOS
+fon
 General Font Information:
 http://www.cssfontstack.com/*/
 
@@ -15,7 +16,8 @@ h1{
 
 p{
 
-  font-family: monospace;
+  /* font-family: monospace; */
+  font-family: 'Zhi Mang Xing', cursive;
 }
 
 
