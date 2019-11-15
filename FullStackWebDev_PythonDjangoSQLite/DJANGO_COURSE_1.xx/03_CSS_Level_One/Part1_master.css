@@ -1,0 +1,33 @@
+/*
+This is a comment
+*/
+
+/*
+General Form is:
+
+Selected Tag {
+  property: value;
+}
+
+*/
+
+/*Colors can be names, or codes*/
+
+h1{
+  /* color: blue; */
+  color: red;
+
+}
+
+li {
+  color: rgb(255, 98, 0);
+  /* color: green; */
+}
+
+p{
+  color: #0055ff;
+}
+
+h4{
+  color: rgba(255, 98, 0,0.5)
+}
