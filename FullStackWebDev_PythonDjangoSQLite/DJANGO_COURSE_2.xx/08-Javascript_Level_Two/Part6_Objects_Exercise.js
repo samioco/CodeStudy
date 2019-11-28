@@ -14,6 +14,7 @@ var employee = {
 // Add a method called nameLength that prints out the
 // length of the employees name to the console.
 
+
 ///////////////////
 // PROBLEM 2 /////
 /////////////////
