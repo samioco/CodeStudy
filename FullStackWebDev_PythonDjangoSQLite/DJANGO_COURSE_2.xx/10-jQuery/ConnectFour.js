@@ -91,3 +91,48 @@ function diagonalWinCheck() {
     }
   }
 }
+
+
+// Start with Player One
+var currentPlayer = 1;
+var currentName = player1;
+var currentColor = player1Color;
+
+// Start with Player One
+$('h3').text(player1+": it is your turn, please pick a column to drop your blue chip.");
+
+
+$('.board button').on('click',function() {
+
+  // Recognize what column was chosen
+  var col = $(this).closest("td").index();
+
+  // Get back bottom available row to change
+  var bottomAvail = checkBottom(col);
+
+  // Drop the chip in that column at the bottomAvail Row
+  changeColor(bottomAvail,col,currentColor);
+
+  // Check for a win or a tie.
+  if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
+    //gameEnd(currentName);
+    $('h1').text(currentName+"You have won!");
+    $('h3').fadeOut('fast');
+    $('h2').fadeOut('fast');
+  }
+
+  // If no win or tie, continue to next player
+  currentPlayer = currentPlayer * -1 ;
+
+  // Re-Check who the current Player is.
+  if (currentPlayer === 1) {
+    currentName = player1;
+    $('h3').text(currentName+": it is your turn, please pick a column to drop your blue chip.");
+    currentColor = player1Color;
+  }else {
+    currentName = player2
+    $('h3').text(currentName+": it is your turn, please pick a column to drop your red chip.");
+    currentColor = player2Color;
+  }
+
+})
