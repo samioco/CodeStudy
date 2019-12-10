@@ -116,7 +116,7 @@ $('.board button').on('click',function() {
   // Check for a win or a tie.
   if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheck()) {
     //gameEnd(currentName);
-    $('h1').text(currentName+"You have won!");
+    $('h1').text(currentName+", You have won!");
     $('h3').fadeOut('fast');
     $('h2').fadeOut('fast');
   }
